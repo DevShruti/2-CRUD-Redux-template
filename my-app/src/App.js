@@ -1,10 +1,15 @@
 import React from 'react';
 import "./App.css";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useSelector , useDispatch } from "react-redux";
+import { addUser, deleteUser, updateUsername } from "./features/Users";
 
 
 function App() {
+  const dispatch = useDispatch();
   const userList = useSelector((state) => state.users.value);
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   return (
     <div className="addUser">
         <input
@@ -17,8 +22,17 @@ function App() {
           placeholder="Username..."
           
         />
-        <button>
-          Add User
+        <button
+          onClick={() => {
+            dispatch(
+              addUser({
+                id: userList[userList.length - 1].id + 1,
+                name,
+                username,
+              })
+            );
+          }}
+        > Add User
         </button>
       
     
