@@ -15,12 +15,16 @@ function App() {
         <input
           type="text"
           placeholder="Name..."
+          onChange={(event) => {
+            setName(event.target.value)}}
         
         />
         <input
           type="text"
           placeholder="Username..."
-          
+          onChange={(event) => {
+            setUsername(event.target.value);
+          }}
         />
         <button
           onClick={() => {
