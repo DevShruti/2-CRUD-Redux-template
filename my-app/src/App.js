@@ -46,6 +46,20 @@ function App() {
           <div>
             <h1> {user.name}</h1>
             <h1>{user.username}</h1>
+            <input
+                type="text"
+                placeholder="New Username..."
+              />
+              <button>
+               Update Username
+              </button>
+              <button
+                onClick={() => {
+                  dispatch(deleteUser({ id: user.id }));
+                }}
+              >
+                Delete User
+              </button>
             </div>
   );
 })};
