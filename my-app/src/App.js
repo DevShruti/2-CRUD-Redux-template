@@ -11,6 +11,7 @@ function App() {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   return (
+    <div className="App">
     <div className="addUser">
         <input
           type="text"
@@ -63,6 +64,7 @@ function App() {
             </div>
   );
 })};
+</div>
 </div>
 </div>
   )}
