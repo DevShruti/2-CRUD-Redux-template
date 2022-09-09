@@ -10,7 +10,9 @@ function App() {
   const userList = useSelector((state) => state.users.value);
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
+  const [newUsername, setNewUsername] = useState("");
   return (
+    <div className="App">
     <div className="addUser">
         <input
           type="text"
@@ -49,8 +51,17 @@ function App() {
             <input
                 type="text"
                 placeholder="New Username..."
+                onChange={(event) => {
+                  setNewUsername(event.target.value);
+                }}
               />
-              <button>
+              <button
+               onClick={() => {
+                dispatch(
+                  updateUsername({ id: user.id, username: newUsername })
+                );
+              }}
+              >
                Update Username
               </button>
               <button
@@ -63,6 +74,7 @@ function App() {
             </div>
   );
 })};
+</div>
 </div>
 </div>
   )}
